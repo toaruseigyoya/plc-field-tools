@@ -1,0 +1,20 @@
+{
+  "name": "plc-field-tools",
+  "version": "0.1.0",
+  "description": "Offline-first browser tools for PLC and field engineering data cleanup.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/tools.js && node --check src/app.js"
+  },
+  "keywords": [
+    "plc",
+    "controls",
+    "automation",
+    "csv",
+    "engineering-tools"
+  ],
+  "license": "MIT"
+}
+

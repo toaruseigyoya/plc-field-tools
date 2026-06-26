@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest a field engineering utility
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Field workflow
+      description: What repeated job would this help with?
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sanitized sample
+      description: Use fictional or sanitized examples only.
+    validations:
+      required: false
+

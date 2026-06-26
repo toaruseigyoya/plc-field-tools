@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Offline-first browser tools for PLC and field engineering data cleanup."
+    >
+    <title>PLC Field Tools</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="workbench">
+      <aside class="rail" aria-label="Project status">
+        <div class="rail__brand">
+          <span class="rail__mark" aria-hidden="true">PFT</span>
+          <h1>PLC Field Tools</h1>
+        </div>
+        <dl class="rail__status">
+          <div>
+            <dt>Mode</dt>
+            <dd>Local</dd>
+          </div>
+          <div>
+            <dt>Network</dt>
+            <dd>None</dd>
+          </div>
+          <div>
+            <dt>License</dt>
+            <dd>MIT</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <section class="console" aria-labelledby="tool-title">
+        <header class="console__header">
+          <div>
+            <p class="eyebrow">Field data workbench</p>
+            <h2 id="tool-title">I/O list normalizer</h2>
+          </div>
+          <div class="console__meter" aria-label="Local processing enabled">
+            <span></span>
+            offline-first
+          </div>
+        </header>
+
+        <nav id="tool-tabs" class="tabs" aria-label="Tools">
+          <button class="tabs__button is-active" type="button" data-tool="io">I/O list</button>
+          <button class="tabs__button" type="button" data-tool="tags">Tag check</button>
+          <button class="tabs__button" type="button" data-tool="subnet">Subnet</button>
+          <button class="tabs__button" type="button" data-tool="alarms">Alarm CSV</button>
+          <button class="tabs__button" type="button" data-tool="notes">Notes</button>
+        </nav>
+
+        <div class="panels">
+          <section class="panel panel--input" aria-label="Input">
+            <div class="panel__bar">
+              <label id="input-label" for="tool-input">Raw I/O rows</label>
+              <button id="sample-button" class="button button--ghost" type="button">Load sample</button>
+            </div>
+            <textarea id="tool-input" spellcheck="false"></textarea>
+            <div class="actions">
+              <button id="run-button" class="button button--primary" type="button">Run</button>
+              <button id="clear-button" class="button" type="button">Clear</button>
+            </div>
+          </section>
+
+          <section class="panel panel--output" aria-live="polite" aria-label="Output">
+            <div class="panel__bar">
+              <span>Result</span>
+              <div class="output-actions">
+                <button id="copy-button" class="icon-button" type="button" title="Copy result" aria-label="Copy result">
+                  CP
+                </button>
+                <button id="download-button" class="icon-button" type="button" title="Download CSV" aria-label="Download CSV">
+                  DL
+                </button>
+              </div>
+            </div>
+            <div id="summary" class="summary">Ready</div>
+            <pre id="tool-output" class="output"></pre>
+            <div id="warnings" class="warnings" aria-label="Warnings"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
+
