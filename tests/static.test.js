@@ -35,3 +35,9 @@ test("README positions the project as offline-first OSS", async () => {
   assert.match(readme, /GitHub Pages/i);
   assert.match(readme, /MIT/i);
 });
+
+test("Pages workflow can enable Pages on a new repository", async () => {
+  const workflow = await readFile(new URL("../.github/workflows/pages.yml", import.meta.url), "utf8");
+
+  assert.match(workflow, /enablement:\s*true/);
+});
